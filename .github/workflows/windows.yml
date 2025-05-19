@@ -1,0 +1,13 @@
+name: RDP
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Setup RDP
+      run: |
+        Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DARK-art007/RDP-Windows/main/installRDP.ps1" -OutFile "installRDP.ps1"
+        powershell.exe -ExecutionPolicy Bypass -File installRDP.ps1
